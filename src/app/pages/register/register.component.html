@@ -1,0 +1,75 @@
+<div class="register-container">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <h2>{{ 'register.title' | translate }}</h2>
+
+    <div class="form-group">
+      <label for="userName">{{ 'register.usernameLabel' | translate }}</label>
+      <input
+        id="userName"
+        type="text"
+        formControlName="userName"
+        [placeholder]="'register.usernamePlaceholder' | translate"
+      />
+      @if (registerForm.get('userName')?.invalid && registerForm.get('userName')?.touched) {
+        <div class="error-message">{{ 'register.errors.usernameRequired' | translate }}</div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="email">{{ 'register.emailLabel' | translate }}</label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        [placeholder]="'register.emailPlaceholder' | translate"
+      />
+      @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
+        <div class="error-message">
+          {{ emailExists ? ('register.errors.emailExists' | translate) : ('register.errors.emailInvalid' | translate) }}
+        </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="password">{{ 'register.passwordLabel' | translate }}</label>
+      <input
+        id="password"
+        type="password"
+        formControlName="password"
+        [placeholder]="'register.passwordPlaceholder' | translate"
+      />
+      @if (registerForm.get('password')?.invalid && registerForm.get('password')?.touched) {
+        <div class="error-message">{{ 'register.errors.passwordTooShort' | translate }}</div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="confirmPassword">{{ 'register.confirmPasswordLabel' | translate }}</label>
+      <input
+        id="confirmPassword"
+        type="password"
+        formControlName="confirmPassword"
+        [placeholder]="'register.confirmPasswordPlaceholder' | translate"
+      />
+      @if (
+        registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched ||
+        registerForm.get('confirmPassword')?.value !== registerForm.get('password')?.value
+      ) {
+        <div class="error-message">
+          {{
+            registerForm.get('password')?.value !== registerForm.get('confirmPassword')?.value
+              ? ('register.errors.passwordMismatch' | translate)
+              : ('register.errors.confirmPasswordRequired' | translate)
+          }}
+        </div>
+      }
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="registerForm.invalid || registerForm.get('confirmPassword')?.value !== registerForm.get('password')?.value"
+    >
+      {{ 'register.submit' | translate }}
+    </button>
+  </form>
+</div>

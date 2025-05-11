@@ -1,0 +1,100 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Cream",
+      "price": 100,
+      "imageUrl": "https://res.cloudinary.com/dvlo9lpxo/image/upload/v1746727838/premium_photo-1675431443027-ad1f46c93c8d_xvt8dp.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Cup",
+      "price": 200,
+      "imageUrl": "https://res.cloudinary.com/dvlo9lpxo/image/upload/v1746727860/premium_photo-1719289799376-d3de0ca4ddbc_ywtmxi.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Headphone",
+      "price": 300,
+      "imageUrl": "https://res.cloudinary.com/dvlo9lpxo/image/upload/v1746727886/photo-1505740420928-5e560c06d30e_offdrl.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Smartphone",
+      "price": 999,
+      "imageUrl": "https://res.cloudinary.com/dvlo9lpxo/image/upload/v1746917803/photo-1716062514556-599c673c582e_nu8v2k.jpg"
+    },
+    {
+      "id": "5",
+      "name": "Laptop",
+      "price": 1499,
+      "imageUrl": "https://res.cloudinary.com/dvlo9lpxo/image/upload/v1746917927/premium_photo-1681566925246-cc584a44d7fe_vrwv0r.jpg"
+    },
+    {
+      "id": "6",
+      "name": "Smartwatch",
+      "price": 250,
+      "imageUrl": "https://res.cloudinary.com/dvlo9lpxo/image/upload/v1746917988/photo-1553545204-4f7d339aa06a_jt64jq.jpg"
+    },
+    {
+      "id": "7",
+      "name": "Gaming Mouse",
+      "price": 80,
+      "imageUrl": "https://res.cloudinary.com/dvlo9lpxo/image/upload/v1746918069/photo-1629121291243-7b5e885cce9b_zzpnqz.jpg"
+    },
+    {
+      "id": "8",
+      "name": "Mechanical Keyboard",
+      "price": 120,
+      "imageUrl": "https://res.cloudinary.com/dvlo9lpxo/image/upload/v1746918123/photo-1602025882379-e01cf08baa51_z075mu.jpg"
+    },
+    {
+      "id": "9",
+      "name": "Tablet",
+      "price": 600,
+      "imageUrl": "https://res.cloudinary.com/dvlo9lpxo/image/upload/v1746918184/photo-1612367990403-73ef3e67bc4f_gxpnif.jpg"
+    },
+    {
+      "id": "10",
+      "name": "Wireless Charger",
+      "price": 45,
+      "imageUrl": "https://res.cloudinary.com/dvlo9lpxo/image/upload/v1746918229/photo-1591290619618-904f6dd935e3_hmp2ag.jpg"
+    },
+    {
+      "id": "11",
+      "name": "DSLR Camera",
+      "price": 1200,
+      "imageUrl": "https://res.cloudinary.com/dvlo9lpxo/image/upload/v1746918363/photo-1625545013865-80da35181abf_gkyzjq.jpg"
+    },
+    {
+      "id": "12",
+      "name": "Bluetooth Speaker",
+      "price": 150,
+      "imageUrl": "https://res.cloudinary.com/dvlo9lpxo/image/upload/v1746918412/photo-1529359744902-86b2ab9edaea_kca2lr.jpg"
+    },
+    {
+      "id": "13",
+      "name": "Webcam",
+      "price": 90,
+      "imageUrl": "https://res.cloudinary.com/dvlo9lpxo/image/upload/v1746918464/photo-1670278458296-00ff8a63141e_nicqaj.jpg"
+    }
+  ],
+  "users": [
+    {
+      "id": "d880",
+      "userName": "salehshalab",
+      "email": "saleh@example.com",
+      "password": "MTIzNDU2",
+      "role": "user",
+      "avatar": "https://res.cloudinary.com/dvlo9lpxo/image/upload/v1746907687/user_uvercr.png"
+    },
+    {
+      "id": "cffc",
+      "userName": "salehshalab",
+      "email": "saleh1@example.com",
+      "password": "MTIzNDU2",
+      "role": "user",
+      "avatar": "https://res.cloudinary.com/dvlo9lpxo/image/upload/v1746907687/user_uvercr.png"
+    }
+  ]
+}

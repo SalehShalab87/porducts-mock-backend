@@ -1,0 +1,55 @@
+{
+  "app": {
+    "title": "Product Store"
+  },
+  "header": {
+    "title": "Store",
+    "greeting": "Hi,"
+  },
+  "products": {
+    "title": "Products",
+    "add": "Add to Cart",
+    "price": "Price:",
+    "notFound": "Product not found"
+  },
+  "login": {
+    "title": "Login",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "emailError": "Please enter a valid email.",
+    "passwordError": "Password must be at least 6 characters long.",
+    "loginFailed": "Invalid email or password.",
+    "button": "Login",
+    "register":"Register",
+    "noAccount": "Don't have an account? "
+  },
+  "register": {
+    "title": "Register",
+    "usernameLabel": "Username",
+    "usernamePlaceholder": "Enter your username",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Enter your email",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "confirmPasswordLabel": "Confirm Password",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "submit": "Register",
+    "errors": {
+      "usernameRequired": "Please enter your Username",
+      "emailInvalid": "Please enter a valid email",
+      "emailExists": "Email already exists",
+      "passwordTooShort": "Password must be at least 6 characters long",
+      "passwordMismatch": "Passwords do not match",
+      "confirmPasswordRequired": "Please confirm your password"
+    }
+  },
+  "profile": {
+    "myProfile": "My Profile"
+  },
+  "buttons": {
+    "buy": "Buy Now",
+    "logout": "Logout"
+  }
+}

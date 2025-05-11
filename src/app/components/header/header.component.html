@@ -1,0 +1,26 @@
+<header>
+  @switch (cureentLanguage) {
+    @case ('ar') {
+      <h1 (click)="goBackToHome()">🛍️{{ 'header.title' | translate }}</h1>
+    }
+    @case ('en') {
+      <h1 (click)="goBackToHome()">{{ 'header.title' | translate }}🛍️</h1>
+    }
+    @default {
+      <h1 (click)="goBackToHome()">{{ 'header.title' | translate }}🛍️</h1>
+    }
+  }
+
+  <nav class="nav-container">
+    <span class="user-name">{{ 'header.greeting' | translate }} {{ (currentUserName$ | async) || 'Guest' }}</span>
+    <i class="ri-shopping-cart-line" (click)="goToCarPage()"></i>
+    @if (!(isLoggedIn$ | async)) {
+      <button (click)="goToLoginPage()">{{ 'login.title' | translate }}</button>
+    } @else {
+      <a [routerLink]="['/profile']" [queryParams]="{ currentUser: (currentUserName$ | async) }">
+        {{ 'profile.myProfile' | translate }}
+      </a>
+      <button (click)="logout()">{{ 'buttons.logout' | translate }}</button>
+    }
+  </nav>
+</header>

@@ -1,0 +1,23 @@
+@if(isLoading) {
+  <app-loader></app-loader>
+}@else if(product && !isLoading) {
+  <div class="product-details">
+    <div class="product-card">
+      <img [src]="product.imageUrl" alt="Product Image" class="product-image" />
+      <div class="product-info">
+        <h2>{{ product.name }}</h2>
+        <p>{{ 'products.price' | translate }} {{ product.price | currency : "USD" }}</p>
+        <p>
+          <button class="buy-now" (click)="goToCheckoutPage()">{{ 'buttons.buy' | translate }}</button>
+        </p>
+      </div>
+    </div>
+  </div>
+}@else {
+  <div class="product-not-found">
+    <img src="https://res.cloudinary.com/dvlo9lpxo/image/upload/v1746962241/undraw_page-not-found_6wni_nad1g7.png" alt="Not Found" class="not-found-image" />
+    <h2>{{ 'products.notFound' | translate }}</h2>
+    <p>{{ 'products.notFoundDescription' | translate }}</p>
+    <button (click)="goBackToProductsPage()" class="go-back-button">{{ 'buttons.goBack' | translate }}</button>
+  </div>
+}

@@ -1,0 +1,41 @@
+<div class="login-container">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h2>{{ "login.title" | translate }}</h2>
+
+    <div class="form-group">
+      <label for="email">{{ "login.email" | translate }}</label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        [placeholder]="'login.emailPlaceholder' | translate"
+      />
+      @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
+      <div class="error-message">{{ "login.emailError" | translate }}</div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="password">{{ "login.password" | translate }}</label>
+      <input
+        id="password"
+        type="password"
+        formControlName="password"
+        [placeholder]="'login.passwordPlaceholder' | translate"
+      />
+      @if (loginForm.get('password')?.invalid &&
+      loginForm.get('password')?.touched) {
+      <div class="error-message">{{ "login.passwordError" | translate }}</div>
+      }@else if (isLoginFailed) {
+      <div class="error-message">{{ "login.loginFailed" | translate }}</div>
+      }
+    </div>
+    <button type="submit" [disabled]="loginForm.invalid">
+      {{ "login.button" | translate }}
+    </button>
+    <div class="register-btn">
+      <span>{{ "login.noAccount" | translate }}</span>
+      <a (click)="goToRegisterPage()"> {{ "login.register" | translate }}</a>
+    </div>
+  </form>
+</div>

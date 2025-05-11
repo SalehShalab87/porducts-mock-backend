@@ -1,0 +1,55 @@
+{
+  "app": {
+    "title": "متجر المنتجات"
+  },
+  "header": {
+    "title": "المتجر",
+    "greeting": "مرحباً،"
+  },
+  "products": {
+    "title": "المنتجات",
+    "add": "إضافة إلى العربة",
+    "price": "السعر:",
+    "notFound": "لم يتم العثور على المنتج"
+  },
+  "login": {
+    "title": "تسجيل الدخول",
+    "email": "البريد الإلكتروني",
+    "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "password": "كلمة المرور",
+    "passwordPlaceholder": "أدخل كلمة المرور",
+    "emailError": "يرجى إدخال بريد إلكتروني صالح.",
+    "passwordError": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل.",
+    "loginFailed": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+    "button": "تسجيل الدخول",
+    "register":"تسجيل حساب جديد",
+    "noAccount": " ليس لديك حساب؟" 
+  },
+  "register": {
+    "title": "تسجيل حساب",
+    "usernameLabel": "اسم المستخدم",
+    "usernamePlaceholder": "أدخل اسم المستخدم",
+    "emailLabel": "البريد الإلكتروني",
+    "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "passwordLabel": "كلمة المرور",
+    "passwordPlaceholder": "أدخل كلمة المرور",
+    "confirmPasswordLabel": "تأكيد كلمة المرور",
+    "confirmPasswordPlaceholder": "أعد إدخال كلمة المرور",
+    "submit": "تسجيل",
+    "errors": {
+      "usernameRequired": "يرجى إدخال اسم المستخدم",
+      "emailInvalid": "يرجى إدخال بريد إلكتروني صالح",
+      "emailExists": "البريد الإلكتروني موجود مسبقًا",
+      "passwordTooShort": "كلمة المرور يجب أن تكون 6 أحرف على الأقل",
+      "passwordMismatch": "كلمتا المرور غير متطابقتين",
+      "confirmPasswordRequired": "يرجى تأكيد كلمة المرور"
+    }
+  },
+  "profile": {
+    "myProfile": "ملفي الشخصي"
+  },
+  "buttons": {
+    "buy": "اشتر الآن",
+    "logout": "تسجيل الخروج"
+  }
+}
