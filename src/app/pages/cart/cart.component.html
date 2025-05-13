@@ -1,4 +1,4 @@
-@if ((cartItems$|async)!.length>0 ) {
+@if ((cartItems$ | async)!.length > 0) {
   <!-- Show full cart if there are items -->
   <div class="cart-container">
     @for (cartItem of (cartItems$ | async); track cartItem.id) {
@@ -7,26 +7,31 @@
           <img [src]="cartItem.imageUrl" alt="{{ cartItem.name }}" />
           <div class="cartItem-details">
             <h3>{{ cartItem.name }}</h3>
-            <p>Price: {{ cartItem.totalPrice | currency }}</p>
-            <p>Quantity: {{ cartItem.quantity }}</p>
+            <p>{{ 'products.price' | translate }} {{ cartItem.totalPrice | currency }}</p>
+            <p>{{ 'cart.quantity' | translate }}: {{ cartItem.quantity }}</p>
           </div>
-          <button class="btn-remove" (click)="removeFromCart(cartItem.id)">Remove</button>
+          <button class="btn-remove" (click)="removeFromCart(cartItem.id)">
+            {{ 'buttons.remove' | translate }}
+          </button>
           <div class="btn-add-remove" (click)="increaseQuantity(cartItem.id)">+</div>
           <div class="btn-add-remove" (click)="decreaseQuantity(cartItem.id)">-</div>
         </div>
       </div>
     }
     <div class="cart-summary">
-      <h2>Cart Summary</h2>
-      <p>Total Items: {{ (cartItems$ | async )?.length}}</p>
-      <p>Total Price: {{ getTotalPrice(cartItems$ | async) | currency }}</p>
-      <button>Checkout</button>
+      <h2>{{ 'cart.summary' | translate }}</h2>
+      <p>{{ 'cart.totalItems' | translate }}: {{ (cartItems$ | async)?.length }}</p>
+      <p>{{ 'cart.totalPrice' | translate }}: {{ getTotalPrice(cartItems$ | async) | currency }}</p>
+      <button>{{ 'buttons.checkout' | translate }}</button>
     </div>
   </div>
 } @else {
   <div class="empty-cart">
-    <img src="https://res.cloudinary.com/dvlo9lpxo/image/upload/v1746996753/undraw_empty-cart_574u_ifekqp.png" alt="Empty Cart" />
-    <h2>Your cart is empty</h2>
-    <p>Add items to your cart to see them here.</p>
+    <img
+      src="https://res.cloudinary.com/dvlo9lpxo/image/upload/v1746996753/undraw_empty-cart_574u_ifekqp.png"
+      alt="Empty Cart"
+    />
+    <h2>{{ 'cart.emptyTitle' | translate }}</h2>
+    <p>{{ 'cart.emptyMessage' | translate }}</p>
   </div>
 }

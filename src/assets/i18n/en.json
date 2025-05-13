@@ -10,7 +10,8 @@
     "title": "Products",
     "add": "Add to Cart",
     "price": "Price:",
-    "viewDetails": "View Details"
+    "viewDetails": "View Details",
+    "warnMessage": "Please log in to purchase products."
   },
   "login": {
     "title": "Login",
@@ -51,10 +52,20 @@
   "buttons": {
     "buy": "Buy Now",
     "logout": "Logout",
-    "goBack": "Return to home"
+    "goBack": "Return to home",
+    "remove": "Remove",
+    "checkout": "Checkout"
   },
   "notFound": {
     "title": "Page Not Found",
     "message": "The page you are looking for does not exist."
+  },
+  "cart": {
+    "summary": "Cart Summary",
+    "totalItems": "Total Items",
+    "totalPrice": "Total Price",
+    "emptyTitle": "Your cart is empty",
+    "emptyMessage": "Add items to your cart to see them here.",
+    "quantity": "Quantity"
   }
 }

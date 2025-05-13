@@ -4,10 +4,11 @@ import { CartService } from '../../services/cart.service';
 import { CommonModule } from '@angular/common';
 import { CartItem } from '../../models/cart.model';
 import { Observable } from 'rxjs';
+import { TranslatePipe } from '../../i18n/translate.pipe';
 
 @Component({
   selector: 'app-cart',
-  imports: [CommonModule],
+  imports: [CommonModule,TranslatePipe],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
 })

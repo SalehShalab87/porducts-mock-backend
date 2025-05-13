@@ -9,7 +9,7 @@
         <p>{{ 'products.price' | translate }} {{ product.price | currency : "USD" }}</p>
         @if ((isLoggedIn$ | async) == false) {
           <div class="warn-message">
-            <p-message icon="ri-error-warning-line" severity="warn" size="large">Please Login To buy</p-message>
+            <p-message icon="ri-error-warning-line" severity="warn" size="large">{{'products.warnMessage' | translate}}</p-message>
           </div>
         }
         <button class="buy-now" (click)="goToCartPage()">{{ 'buttons.buy' | translate }}</button>
@@ -19,4 +19,3 @@
 }@else {
   <app-not-found></app-not-found>
 }
-  

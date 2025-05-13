@@ -21,8 +21,8 @@
           </div>
         }@else {
           <div class="btn-container">
-            <button (click)="addProductToCart(product)">{{ "products.add" | translate }}</button>
             <a (click)="goToProductDetails(product.id)">{{ "products.viewDetails" | translate}}</a>
+            <button (click)="addProductToCart(product)">{{ "products.add" | translate }}</button>
           </div>
         }
       </div>
@@ -31,3 +31,4 @@
   </section>
 </main>
 }
+
