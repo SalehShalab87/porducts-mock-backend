@@ -13,10 +13,15 @@
 
   <nav class="nav-container">
     <span class="user-name">{{ 'header.greeting' | translate }} {{ (currentUserName$ | async) || 'Guest' }}</span>
-    <i class="ri-shopping-cart-line" (click)="goToCarPage()"></i>
     @if (!(isLoggedIn$ | async)) {
       <button (click)="goToLoginPage()">{{ 'login.title' | translate }}</button>
     } @else {
+      <div class="cart-icon">
+        <i class="ri-shopping-cart-line" (click)="goToCarPage()"></i>
+      @if((cartItemsCount$ |async)! > 0) {
+        <span class="cart-count">{{cartItemsCount$ |async}}</span>
+      }
+      </div>
       <a [routerLink]="['/profile']" [queryParams]="{ currentUser: (currentUserName$ | async) }">
         {{ 'profile.myProfile' | translate }}
       </a>

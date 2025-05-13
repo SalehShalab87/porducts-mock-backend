@@ -1,7 +1,8 @@
 main {
   display: grid;
   grid-template-rows: auto 1fr auto; 
-  height: 100vh;  
+  height: 100vh;
+  background-color: #f9f9f9;  
 }
 
 app-header {

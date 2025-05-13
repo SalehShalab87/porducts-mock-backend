@@ -15,7 +15,16 @@
           {{ "products.price" | translate }}
           {{ product.price | currency : "USD" }}
         </p>
-        <button (click)="addProductToCart(product)">{{ "products.add" | translate }}</button>
+        @if(!(isLoggedIn$ | async)){
+          <div class="btn-container">
+            <a (click)="goToProductDetails(product.id)">{{ "products.viewDetails" | translate}}</a>
+          </div>
+        }@else {
+          <div class="btn-container">
+            <button (click)="addProductToCart(product)">{{ "products.add" | translate }}</button>
+            <a (click)="goToProductDetails(product.id)">{{ "products.viewDetails" | translate}}</a>
+          </div>
+        }
       </div>
     </div>
     }

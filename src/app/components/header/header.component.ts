@@ -3,6 +3,7 @@ import { TranslatePipe } from '../../i18n/translate.pipe';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -12,10 +13,13 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
   private router = inject(Router);
-  authService = inject(AuthService);
+  private authService = inject(AuthService);
+  private cartService = inject(CartService)
 
   isLoggedIn$ = this.authService.isLoggedIn$;
   currentUserName$ = this.authService.currentUserName$;
+  cartItems$ = this.cartService.cartItems$;
+  cartItemsCount$ = this.cartService.cartItemsCount$;
 
   cureentLanguage!: string;
 

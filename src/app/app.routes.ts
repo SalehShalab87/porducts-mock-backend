@@ -16,7 +16,7 @@ export const routes: Routes = [
     {path:'sign-in',component:LoginComponent},
     {path:'sign-up',component:RegisterComponent},
     {path:'profile',component:ProfileComponent},
-    {path:'cart',component:CartComponent},
+    {path:'cart',component:CartComponent,canActivate:[authGuard]},
     {path:'checkout',component:CheckoutComponent,canActivate:[authGuard]},
     {path:'not-found',component:NotFoundComponent},
     {path:'**',redirectTo:'not-found', pathMatch:'full'}

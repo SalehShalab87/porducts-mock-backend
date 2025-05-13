@@ -7,17 +7,16 @@
       <div class="product-info">
         <h2>{{ product.name }}</h2>
         <p>{{ 'products.price' | translate }} {{ product.price | currency : "USD" }}</p>
-        <p>
-          <button class="buy-now" (click)="goToCheckoutPage()">{{ 'buttons.buy' | translate }}</button>
-        </p>
+        @if ((isLoggedIn$ | async) == false) {
+          <div class="warn-message">
+            <p-message icon="ri-error-warning-line" severity="warn" size="large">Please Login To buy</p-message>
+          </div>
+        }
+        <button class="buy-now" (click)="goToCartPage()">{{ 'buttons.buy' | translate }}</button>
       </div>
     </div>
   </div>
 }@else {
-  <div class="product-not-found">
-    <img src="https://res.cloudinary.com/dvlo9lpxo/image/upload/v1746962241/undraw_page-not-found_6wni_nad1g7.png" alt="Not Found" class="not-found-image" />
-    <h2>{{ 'products.notFound' | translate }}</h2>
-    <p>{{ 'products.notFoundDescription' | translate }}</p>
-    <button (click)="goBackToProductsPage()" class="go-back-button">{{ 'buttons.goBack' | translate }}</button>
-  </div>
+  <app-not-found></app-not-found>
 }
+  

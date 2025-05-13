@@ -3,6 +3,7 @@ import { Product } from '../../models/product.model';
 import { CartService } from '../../services/cart.service';
 import { CommonModule } from '@angular/common';
 import { CartItem } from '../../models/cart.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -13,7 +14,8 @@ import { CartItem } from '../../models/cart.model';
 export class CartComponent {
   private cartService = inject(CartService);
   totalPrice: number = 0;
-  cartItems = this.cartService.cartItems$;
+  cartItems$: Observable<CartItem[]> = this.cartService.cartItems$;
+  cartItemsCount$:Observable<number> = this.cartService.cartItemsCount$;
 
   getTotalPrice(cartItems: CartItem[] | null | undefined): number {
     if (!cartItems || cartItems.length === 0) return 0;
@@ -31,5 +33,5 @@ export class CartComponent {
   decreaseQuantity(productId:number){
     this.cartService.decreaseQuantity(productId);
   }
-
+  
 }

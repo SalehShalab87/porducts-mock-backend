@@ -7,12 +7,27 @@ import { CartItem } from '../models/cart.model';
   providedIn: 'root',
 })
 export class CartService {
-  private cartItemsSubject = new BehaviorSubject<CartItem[]>([]);
+  private cartItemsSubject = new BehaviorSubject<CartItem[]>(this.loadCartItems());
   cartItems$ = this.cartItemsSubject.asObservable();
+  private cartIetemsCountSubject$ = new BehaviorSubject<number>(this.getItemsCount());
+  cartItemsCount$ = this.cartIetemsCountSubject$.asObservable();
+  
 
   // Get current cart items
   getCartItems(): CartItem[] {
     return this.cartItemsSubject.getValue();
+  }
+
+  // Load cart items from local storage
+  loadCartItems(): CartItem[] {
+    const cartItems = localStorage.getItem('cartItems');
+    return cartItems ? JSON.parse(cartItems) : [];
+  }
+
+  // Get total item count in the cart
+  getItemsCount(): number {
+    const cartItems = this.getCartItems();
+    return cartItems.reduce((acc, item) => acc + item.quantity, 0);
   }
 
   // Add product to cart
@@ -38,19 +53,18 @@ export class CartService {
 
     // Update the cart
     this.cartItemsSubject.next(cartItems);
+    // Save to local storage
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    // Update the cart items count
+    this.cartIetemsCountSubject$.next(this.getItemsCount());
   }
 
   // Remove product from cart
   removeFromCart(productId: number): void {
-    const updatedCart = this.getCartItems().filter(
-      (item) => item.id !== productId
-    );
+    const updatedCart = this.getCartItems().filter((item) => item.id !== productId);
     this.cartItemsSubject.next(updatedCart);
-  }
-
-  // Clear cart
-  clearCart(): void {
-    this.cartItemsSubject.next([]);
+    localStorage.setItem('cartItems', JSON.stringify(updatedCart));
+    this.cartIetemsCountSubject$.next(this.getItemsCount());
   }
 
   // Increase quantity of a product in the cart
@@ -62,6 +76,8 @@ export class CartService {
       item.quantity += 1;
       item.totalPrice = item.unitPrice * item.quantity;
       this.cartItemsSubject.next(cartItems);
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+      this.cartIetemsCountSubject$.next(this.getItemsCount());
     }
   }
 
@@ -70,10 +86,15 @@ export class CartService {
     const cartItems = this.getCartItems();
     const item = cartItems.find((item) => item.id === productId);
 
-    if (item) {
+    if (item !== undefined && item.quantity > 1) {
       item.quantity -= 1;
-      item.totalPrice -= item.unitPrice * item.quantity;
+      item.totalPrice = item.unitPrice * item.quantity;
       this.cartItemsSubject.next(cartItems);
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+      this.cartIetemsCountSubject$.next(this.getItemsCount());
+      
+    } else if (item) {
+      this.removeFromCart(productId);
     }
   }
 }

@@ -30,6 +30,7 @@ export class AuthService {
   logoutUser() {
     localStorage.removeItem('token');
     localStorage.removeItem('username');
+    localStorage.removeItem('cartItems');
     this.isLoggedInSubject.next(false);
     this.currentUserNameSubject.next(null);
     this.redirectUrl = '';

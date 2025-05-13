@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { TranslatePipe } from '../../i18n/translate.pipe';
+import { Observable, Subscription } from 'rxjs';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +19,7 @@ export class LoginComponent {
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
   private router = inject(Router);
+  subcription!: Subscription;
 
   ngOnInit() {
     this.initializeLoginForm();
@@ -32,7 +35,7 @@ export class LoginComponent {
   onSubmit(){
     const userEmail = this.loginForm.value.email; 
     const userPassword = this.loginForm.value.password
-    this.authService.isUserExists(userEmail,userPassword).subscribe((users) => {
+    this.subcription = this.authService.isUserExists(userEmail,userPassword).subscribe((users) => {
       if(users.length > 0) {;
         localStorage.setItem('token', 'mock-token');
         this.authService.login(users[0]);
@@ -45,6 +48,10 @@ export class LoginComponent {
 
   goToRegisterPage(){
     this.router.navigateByUrl('/sign-up');
+  }
+
+  ngOnDestroy() {
+    this.subcription?.unsubscribe();
   }
 
 }

@@ -3,6 +3,7 @@
     flex-direction: column;
     gap: 20px;
     padding: 20px;
+    height: 85%;
 
     .cartItems-container {
         display: flex;
@@ -104,7 +105,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 100vh;
+    height: 85%;
 
     img {
         max-width: 300px;

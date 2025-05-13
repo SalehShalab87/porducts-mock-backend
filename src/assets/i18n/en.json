@@ -10,7 +10,7 @@
     "title": "Products",
     "add": "Add to Cart",
     "price": "Price:",
-    "notFound": "Product not found"
+    "viewDetails": "View Details"
   },
   "login": {
     "title": "Login",
@@ -22,7 +22,7 @@
     "passwordError": "Password must be at least 6 characters long.",
     "loginFailed": "Invalid email or password.",
     "button": "Login",
-    "register":"Register",
+    "register": "Register",
     "noAccount": "Don't have an account? "
   },
   "register": {
@@ -50,6 +50,11 @@
   },
   "buttons": {
     "buy": "Buy Now",
-    "logout": "Logout"
+    "logout": "Logout",
+    "goBack": "Return to home"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "message": "The page you are looking for does not exist."
   }
 }

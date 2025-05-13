@@ -1,7 +1,7 @@
-@if ((cartItems|async)!.length>0) {
+@if ((cartItems$|async)!.length>0 ) {
   <!-- Show full cart if there are items -->
   <div class="cart-container">
-    @for (cartItem of (cartItems | async); track cartItem.id) {
+    @for (cartItem of (cartItems$ | async); track cartItem.id) {
       <div class="cartItems-container">
         <div class="cartItem">
           <img [src]="cartItem.imageUrl" alt="{{ cartItem.name }}" />
@@ -18,8 +18,8 @@
     }
     <div class="cart-summary">
       <h2>Cart Summary</h2>
-      <p>Total Items: {{ (cartItems | async)?.length }}</p>
-      <p>Total Price: {{ getTotalPrice(cartItems | async) | currency }}</p>
+      <p>Total Items: {{ (cartItems$ | async )?.length}}</p>
+      <p>Total Price: {{ getTotalPrice(cartItems$ | async) | currency }}</p>
       <button>Checkout</button>
     </div>
   </div>
