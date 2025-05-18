@@ -20,7 +20,7 @@ export class HeaderComponent {
   currentUserName$ = this.authService.currentUserName$;
   cartItems$ = this.cartService.cartItems$;
   cartItemsCount$ = this.cartService.cartItemsCount$;
-
+  isAdmin$ = this.authService.isAdmin$;
   cureentLanguage!: string;
 
   ngOnInit() {
@@ -41,6 +41,10 @@ export class HeaderComponent {
 
   goToCarPage(){
     this.router.navigateByUrl('/cart');
+  }
+
+  goToAddProductPage(){
+    this.router.navigateByUrl('/add-product');
   }
 
   logout() {

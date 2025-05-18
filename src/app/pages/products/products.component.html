@@ -1,34 +1,34 @@
 @if(!productsList){
-<app-loader></app-loader>
+  <app-loader></app-loader>
 }@else {
-<header>
-  <h1>{{ "products.title" | translate }}</h1>
-</header>
-<main class="products-container">
-  <section class="product-List">
-    @for (product of productsList; track product.id) {
-    <div class="product-card">
-      <img [src]="product.imageUrl" alt="Product Image" (click)="goToProductDetails(product.id)" />
-      <h2>{{ product.name }}</h2>
-      <div class="product-details">
-        <p>
-          {{ "products.price" | translate }}
-          {{ product.price | currency : "USD" }}
-        </p>
-        @if(!(isLoggedIn$ | async)){
-          <div class="btn-container">
-            <a (click)="goToProductDetails(product.id)">{{ "products.viewDetails" | translate}}</a>
-          </div>
-        }@else {
-          <div class="btn-container">
-            <a (click)="goToProductDetails(product.id)">{{ "products.viewDetails" | translate}}</a>
-            <button (click)="addProductToCart(product)">{{ "products.add" | translate }}</button>
-          </div>
-        }
+  <header>
+    <h1>{{ "products.title" | translate }}</h1>
+  </header>
+  <main class="products-container">
+    <section class="product-List">
+      @for (product of productsList; track product.id) {
+      <div class="product-card">
+        <img [src]="product.imageUrl" alt="Product Image" (click)="goToProductDetails(product.id)" />
+        <h2>{{ product.name }}</h2>
+        <div class="product-details">
+          <p>
+            {{ "products.price" | translate }}
+            {{ product.price | currency : "USD" }}
+          </p>
+          @if(!(isLoggedIn$ | async)){
+            <div class="btn-container">
+              <a (click)="goToProductDetails(product.id)">{{ "products.viewDetails" | translate}}</a>
+            </div>
+          }@else {
+            <div class="btn-container">
+              <a (click)="goToProductDetails(product.id)">{{ "products.viewDetails" | translate}}</a>
+            </div><div class="btn-delete-container">
+              <button (click)="addProductToCart(product)">{{ "products.add" | translate }}</button>
+            </div>
+          }
+        </div>
       </div>
-    </div>
-    }
-  </section>
-</main>
+      }
+    </section>
+  </main>
 }
-

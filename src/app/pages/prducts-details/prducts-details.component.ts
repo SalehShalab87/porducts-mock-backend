@@ -17,7 +17,7 @@ import { CartService } from '../../services/cart.service';
   styleUrl: './prducts-details.component.scss',
 })
 export class ProductsDetailsComponent {
-  private productId!: number;
+  private productId!: string;
   private productsService = inject(ProductsService);
   private ActiveRoute = inject(ActivatedRoute);
   private AuthServvice = inject(AuthService);
@@ -34,7 +34,7 @@ export class ProductsDetailsComponent {
   }
 
   readProductId() {
-    this.productId = Number(this.ActiveRoute.snapshot.paramMap.get('id'));
+    this.productId = this.ActiveRoute.snapshot.paramMap.get('id')!;
   }
 
   loadProductById() {

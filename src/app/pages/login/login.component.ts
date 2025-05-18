@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { TranslatePipe } from '../../i18n/translate.pipe';
-import { Observable, Subscription } from 'rxjs';
-import { User } from '../../models/user.model';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-login',

@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../models/user.model';
 import { HttpClient } from '@angular/common/http';
+import { CartService } from './cart.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,12 +10,16 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
   private redirectUrl: string = '';
   private http = inject(HttpClient);
+  private cartService = inject(CartService);
 
- private isLoggedInSubject = new BehaviorSubject<boolean>(this.getInitialLoginStatus());
+  private isLoggedInSubject = new BehaviorSubject<boolean>(this.getInitialLoginStatus());
   isLoggedIn$ = this.isLoggedInSubject.asObservable();
 
   private currentUserNameSubject = new BehaviorSubject<string | null>(localStorage.getItem('username'));
   currentUserName$ = this.currentUserNameSubject.asObservable();
+
+  public isAdminSubject = new BehaviorSubject<boolean>(localStorage.getItem('isAdmin') === 'true');
+  isAdmin$ = this.isAdminSubject.asObservable();
 
    getInitialLoginStatus(): boolean {
     return localStorage.getItem('token') ? true : false
@@ -25,6 +30,12 @@ export class AuthService {
     localStorage.setItem('username', user.userName);
     this.isLoggedInSubject.next(true);
     this.currentUserNameSubject.next(user.userName);
+    if (user.role === 'admin' && user.userName === 'admin') {
+      localStorage.setItem('isAdmin', 'true');
+      this.isAdminSubject.next(true);
+    }else{
+      this.isAdminSubject.next(false);
+    }
   }
 
   logoutUser() {
@@ -34,6 +45,9 @@ export class AuthService {
     this.isLoggedInSubject.next(false);
     this.currentUserNameSubject.next(null);
     this.redirectUrl = '';
+    this.isAdminSubject.next(false);
+    localStorage.removeItem('isAdmin');
+    this.cartService.clearCart();
   }
 
   registerUser(user: User): Observable<User> {

@@ -59,8 +59,8 @@ export class CartService {
     this.cartIetemsCountSubject$.next(this.getItemsCount());
   }
 
-  // Remove product from cart
-  removeFromCart(productId: number): void {
+  
+  removeFromCart(productId: string): void {
     const updatedCart = this.getCartItems().filter((item) => item.id !== productId);
     this.cartItemsSubject.next(updatedCart);
     localStorage.setItem('cartItems', JSON.stringify(updatedCart));
@@ -68,7 +68,7 @@ export class CartService {
   }
 
   // Increase quantity of a product in the cart
-  increaseQuantity(productId: number): void {
+  increaseQuantity(productId: string): void {
     const cartItems = this.getCartItems();
     const item = cartItems.find((item) => item.id === productId);
 
@@ -77,12 +77,12 @@ export class CartService {
       item.totalPrice = item.unitPrice * item.quantity;
       this.cartItemsSubject.next(cartItems);
       localStorage.setItem('cartItems', JSON.stringify(cartItems));
-      this.cartIetemsCountSubject$.next(this.getItemsCount());
+      this.cartIetemsCountSubject$.next(this.getItemsCount())
     }
   }
 
   // Decrease quantity of a product in the cart
-  decreaseQuantity(productId: number): void {
+  decreaseQuantity(productId: string): void {
     const cartItems = this.getCartItems();
     const item = cartItems.find((item) => item.id === productId);
 
@@ -97,4 +97,10 @@ export class CartService {
       this.removeFromCart(productId);
     }
   }
+
+  clearCart(): void {
+    this.cartItemsSubject.next([]);
+    this.cartIetemsCountSubject$.next(0);
+  }
+
 }

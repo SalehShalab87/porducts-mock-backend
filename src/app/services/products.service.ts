@@ -14,8 +14,16 @@ export class ProductsService {
     return this.http.get<Product[]>(this.url);
   }
 
-  getProductById(id: number) :Observable<Product>{
+  getProductById(id: string) :Observable<Product>{
     return this.http.get<Product>(`${this.url}/${id}`);
+  }
+
+  addProduct(product: Product) :Observable<Product>{
+    return this.http.post<Product>(this.url, product);
+  }
+
+  deleteProduct(id: string) :Observable<Product>{
+    return this.http.delete<Product>(`${this.url}/${id}`);
   }
   
 }

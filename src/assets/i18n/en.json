@@ -11,7 +11,12 @@
     "add": "Add to Cart",
     "price": "Price:",
     "viewDetails": "View Details",
-    "warnMessage": "Please log in to purchase products."
+    "warnMessage": "Please log in to purchase products.",
+    "delete": "Delete",
+    "delete-header": "Delete Product",
+    "delete-message": "Are you sure you want to delete this product?",
+    "delete-cancel": "Cancel",
+    "delete-confirm": "Delete"
   },
   "login": {
     "title": "Login",
@@ -54,7 +59,8 @@
     "logout": "Logout",
     "goBack": "Return to home",
     "remove": "Remove",
-    "checkout": "Checkout"
+    "checkout": "Checkout",
+    "addProduct": "Add Product"
   },
   "notFound": {
     "title": "Page Not Found",

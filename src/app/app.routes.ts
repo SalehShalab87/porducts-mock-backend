@@ -8,6 +8,8 @@ import { CartComponent } from './pages/cart/cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { authGuard } from './guards/auth.guard';
+import { AddProductComponent } from './pages/add-product/add-product.component';
+import { roleGuard } from './guards/role.guard';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'products', pathMatch: 'full'},
@@ -18,6 +20,7 @@ export const routes: Routes = [
     {path:'profile',component:ProfileComponent},
     {path:'cart',component:CartComponent,canActivate:[authGuard]},
     {path:'checkout',component:CheckoutComponent,canActivate:[authGuard]},
+    {path:'add-product',component:AddProductComponent,canActivate:[roleGuard]},
     {path:'not-found',component:NotFoundComponent},
     {path:'**',redirectTo:'not-found', pathMatch:'full'}
 ];

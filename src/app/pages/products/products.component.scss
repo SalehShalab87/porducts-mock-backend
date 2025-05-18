@@ -1,4 +1,4 @@
-header{
+header {
   padding: 25px;
   display: flex;
   justify-content: center;
@@ -63,25 +63,40 @@ header{
         margin-bottom: 0.75rem;
       }
 
-      .btn-container{
+      .btn-container {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
         gap: 10px;
 
-        a{
+        a {
           text-decoration: none;
           padding: 0.5rem 1rem;
           font-size: 1rem;
           background-color: transparent;
           color: #007bff;
           border-radius: 6px;
-          transition:  color 0.2s ease;
+          transition: color 0.2s ease;
 
           &:hover {
             text-decoration: underline;
           }
+        }
+      }
+
+      .btn-delete {
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        padding: 0.75rem 1.25rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: #c82333;
         }
       }
 

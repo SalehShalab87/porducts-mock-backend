@@ -25,6 +25,9 @@
       <a [routerLink]="['/profile']" [queryParams]="{ currentUser: (currentUserName$ | async) }">
         {{ 'profile.myProfile' | translate }}
       </a>
+      @if(isAdmin$ | async) {
+        <button (click)="goToAddProductPage()">{{ 'buttons.addProduct' | translate }}</button>
+      }
       <button (click)="logout()">{{ 'buttons.logout' | translate }}</button>
     }
   </nav>

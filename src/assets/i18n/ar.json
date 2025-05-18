@@ -11,7 +11,12 @@
     "add": "إضافة إلى العربة",
     "price": "السعر:",
     "viewDetails": "عرض التفاصيل",
-    "warnMessage":"يرجى تسجيل الدخول لشراء المنتجات"
+    "warnMessage":"يرجى تسجيل الدخول لشراء المنتجات",
+    "delete": "حذف",
+    "delete-header": "حذف المنتج",
+    "delete-message": "هل أنت متأكد أنك تريد حذف هذا المنتج؟",
+    "delete-cancel": "إلغاء",
+    "delete-confirm": "حذف"
   },
   "login": {
     "title": "تسجيل الدخول",
@@ -54,7 +59,8 @@
     "logout": "تسجيل الخروج",
     "goBack": "العودة إلى الصفحة الرئيسية",
     "remove": "إزالة",
-    "checkout": "الدفع"
+    "checkout": "الدفع",
+    "addProduct": "إضافة منتج"
   },
   "notFound": {
     "title": "صفحة غير موجودة",
