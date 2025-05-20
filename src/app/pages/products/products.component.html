@@ -15,7 +15,7 @@
             {{ "products.price" | translate }}
             {{ product.price | currency : "USD" }}
           </p>
-          @if(!(isLoggedIn$ | async)){
+          @if(!(isLoggedIn$| async)){
             <div class="btn-container">
               <a (click)="goToProductDetails(product.id)">{{ "products.viewDetails" | translate}}</a>
             </div>

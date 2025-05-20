@@ -29,7 +29,7 @@ export class ProductsComponent implements OnInit {
   private authService = inject(AuthService);
   isLoggedIn$: Observable<boolean> = this.authService.isLoggedIn$;
   isAdmin$: Observable<boolean> = this.authService.isAdmin$;
- 
+  
 
   ngOnInit() {
     this.loadAllProducts();

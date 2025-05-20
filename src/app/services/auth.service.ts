@@ -42,11 +42,11 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('username');
     localStorage.removeItem('cartItems');
+    localStorage.removeItem('isAdmin');
     this.isLoggedInSubject.next(false);
     this.currentUserNameSubject.next(null);
     this.redirectUrl = '';
     this.isAdminSubject.next(false);
-    localStorage.removeItem('isAdmin');
     this.cartService.clearCart();
   }
 
